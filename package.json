@@ -5,7 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 	"test": "mocha",
-	"lint": "eslint ."
+	"lint": "eslint .",
+	"build": "npm run lint && npm t"
 	},
 	"repository": {
 	"type": "git",
@@ -23,6 +24,7 @@
 	},
 	"homepage": "https://github.com/briandipalma/esformatter-use-strict",
 	"devDependencies": {
-	"eslint": "^0.13.0"
+	"eslint": "^0.13.0",
+	"mocha": "^2.1.0"
 	}
 }
