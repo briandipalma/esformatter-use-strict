@@ -1,24 +1,28 @@
 {
-  "name": "esformatter-use-strict",
-  "version": "1.0.0",
-  "description": "esformatter plugin that adds a global use strict at the top of a module",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/briandipalma/esformatter-use-strict.git"
-  },
-  "keywords": [
-    "esformatter",
-    "plugin",
-    "use-strict"
-  ],
-  "author": "Brian Di Palma",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/briandipalma/esformatter-use-strict/issues"
-  },
-  "homepage": "https://github.com/briandipalma/esformatter-use-strict"
+	"name": "esformatter-use-strict",
+	"version": "1.0.0",
+	"description": "esformatter plugin that adds a global use strict at the top of a module",
+	"main": "index.js",
+	"scripts": {
+	"test": "mocha",
+	"lint": "eslint ."
+	},
+	"repository": {
+	"type": "git",
+	"url": "https://github.com/briandipalma/esformatter-use-strict.git"
+	},
+	"keywords": [
+	"esformatter",
+	"plugin",
+	"use-strict"
+	],
+	"author": "Brian Di Palma",
+	"license": "ISC",
+	"bugs": {
+	"url": "https://github.com/briandipalma/esformatter-use-strict/issues"
+	},
+	"homepage": "https://github.com/briandipalma/esformatter-use-strict",
+	"devDependencies": {
+	"eslint": "^0.13.0"
+	}
 }
