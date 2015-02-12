@@ -12,6 +12,10 @@ exports.tokenBefore = function(token) {
 			rocamboleToken.remove(token.next);
 		}
 
+		if (rocamboleToken.isBr(token.next)) {
+			rocamboleToken.remove(token.next);
+		}
+
 		rocamboleToken.remove(token);
 	}
 };
