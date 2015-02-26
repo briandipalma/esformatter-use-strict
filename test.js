@@ -42,4 +42,15 @@ mocha.describe('use strict plugin', function() {
 		// Then.
 		assert.equal(formattedCode, "'use strict';\n\nfunction MyClass() {\n  var t = 10;\n}");
 	});
+
+	mocha.it('should remove extra trailing new lines after use strict pragmas.', function() {
+		// Given.
+		var codeStr = 'function MyClass() {"use strict";\n\nvar t = 10;}';
+
+		// When.
+		var formattedCode = esformatter.format(codeStr);
+
+		// Then.
+		assert.equal(formattedCode, "'use strict';\n\nfunction MyClass() {\n  var t = 10;\n}");
+	});
 });
