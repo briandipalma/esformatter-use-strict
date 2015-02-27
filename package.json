@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
+    "prepublish": "npm run build",
     "test:debug": "node --debug-brk node_modules/.bin/_mocha",
     "lint": "eslint .",
     "build": "npm run lint && npm t"
