@@ -1,6 +1,6 @@
 {
   "name": "esformatter-use-strict",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "esformatter plugin that adds a global use strict at the top of a module",
   "main": "index.js",
   "scripts": {
