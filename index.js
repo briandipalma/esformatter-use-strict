@@ -8,10 +8,17 @@ exports.stringAfter = function(formattedString) {
 
 exports.tokenBefore = function(token) {
 	if (isUseStrictPragma(token)) {
+		// Remove possible semicolon after 'use strict'
 		if (rocamboleToken.isSemiColon(token.next)) {
 			rocamboleToken.remove(token.next);
 		}
 
+		// Remove possible newline at end of 'use strict';
+		if (rocamboleToken.isBr(token.next)) {
+			rocamboleToken.remove(token.next);
+		}
+
+		// Remove possible spacing linebreak newline after 'use strict';
 		if (rocamboleToken.isBr(token.next)) {
 			rocamboleToken.remove(token.next);
 		}
