@@ -53,4 +53,15 @@ mocha.describe('use strict plugin', function() {
 		// Then.
 		assert.equal(formattedCode, "'use strict';\n\nfunction MyClass() {\n  var t = 10;\n}");
 	});
+
+	mocha.it('should remove spacing newline after use strict pragma line.', function() {
+		// Given.
+		var codeStr = '"use strict";\n\n/**/';
+
+		// When.
+		var formattedCode = esformatter.format(codeStr);
+
+		// Then - if we didn't remove the spacing newline we would end up with three \n.
+		assert.equal(formattedCode, "'use strict';\n\n/**/");
+	});
 });

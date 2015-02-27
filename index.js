@@ -3,7 +3,18 @@
 var rocamboleToken = require('rocambole-token');
 
 exports.stringAfter = function(formattedString) {
-	return "'use strict';\n\n" + formattedString;
+	var trailingLineBreaks = '\n\n';
+	var firstCharacterIsNewline = formattedString.charAt(0) === '\n';
+	var secondCharacterIsNewline = formattedString.charAt(1) === '\n';
+
+	// If the module starts with newlines there is no need to add any after pragma
+	if (firstCharacterIsNewline && secondCharacterIsNewline) {
+		trailingLineBreaks = '';
+	} else if (firstCharacterIsNewline) {
+		trailingLineBreaks = '\n';
+	}
+
+	return "'use strict';" + trailingLineBreaks + formattedString;
 };
 
 exports.tokenBefore = function(token) {
@@ -14,11 +25,6 @@ exports.tokenBefore = function(token) {
 		}
 
 		// Remove possible newline at end of 'use strict';
-		if (rocamboleToken.isBr(token.next)) {
-			rocamboleToken.remove(token.next);
-		}
-
-		// Remove possible spacing linebreak newline after 'use strict';
 		if (rocamboleToken.isBr(token.next)) {
 			rocamboleToken.remove(token.next);
 		}
