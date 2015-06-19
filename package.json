@@ -27,8 +27,8 @@
   },
   "homepage": "https://github.com/briandipalma/esformatter-use-strict",
   "devDependencies": {
-    "esformatter": "^0.4.3",
-    "eslint": "^0.13.0",
+    "esformatter": "^0.7.0",
+    "eslint": "^0.23.0",
     "mocha": "^2.1.0"
   },
   "dependencies": {
