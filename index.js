@@ -1,11 +1,12 @@
+// eslint-disable-next-line
 'use strict';
 
-var rocamboleToken = require('rocambole-token');
+const rocamboleToken = require('rocambole-token');
 
-exports.stringAfter = function(formattedString) {
-	var trailingLineBreaks = '\n\n';
-	var firstCharacterIsNewline = formattedString.charAt(0) === '\n';
-	var secondCharacterIsNewline = formattedString.charAt(1) === '\n';
+exports.stringAfter = function stringAfter(formattedString) {
+	let trailingLineBreaks = '\n\n';
+	const firstCharacterIsNewline = formattedString.charAt(0) === '\n';
+	const secondCharacterIsNewline = formattedString.charAt(1) === '\n';
 
 	// If the module starts with newlines there is no need to add any after pragma
 	if (firstCharacterIsNewline && secondCharacterIsNewline) {
@@ -14,10 +15,10 @@ exports.stringAfter = function(formattedString) {
 		trailingLineBreaks = '\n';
 	}
 
-	return "'use strict';" + trailingLineBreaks + formattedString;
+	return `'use strict';${trailingLineBreaks}${formattedString}`;
 };
 
-exports.tokenBefore = function(token) {
+exports.tokenBefore = function tokenBefore(token) {
 	if (isUseStrictPragma(token)) {
 		// Remove possible semicolon after 'use strict'
 		if (rocamboleToken.isSemiColon(token.next)) {
