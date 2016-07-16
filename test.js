@@ -65,4 +65,19 @@ mocha.describe('use strict plugin', () => {
 		// Then - if we didn't remove the spacing newline we would end up with three \n.
 		assert.equal(formattedCode, "'use strict';\n\n/**/");
 	});
+
+	mocha.it('should use double quotes if configured.', () => {
+		// Given.
+		const codeStr = '"use strict";\n\n/**/';
+
+		// When.
+		const formattedCode = esformatter.format(codeStr, {
+			quotes: {
+				type: 'double'
+			}
+		});
+
+		// Then - `use strict` is surrounded by double quotes.
+		assert.equal(formattedCode, '"use strict";\n\n/**/');
+	});
 });

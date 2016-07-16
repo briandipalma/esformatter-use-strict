@@ -3,6 +3,16 @@
 
 const rocamboleToken = require('rocambole-token');
 
+let quoteValue = "'";
+
+exports.setOptions = function setOptions(opts) {
+	const quoteType = opts && opts.quotes && opts.quotes.type;
+
+	if (quoteType && quoteType === 'double') {
+		quoteValue = '"';
+	}
+};
+
 exports.stringAfter = function stringAfter(formattedString) {
 	let trailingLineBreaks = '\n\n';
 	const firstCharacterIsNewline = formattedString.charAt(0) === '\n';
@@ -15,7 +25,7 @@ exports.stringAfter = function stringAfter(formattedString) {
 		trailingLineBreaks = '\n';
 	}
 
-	return `'use strict';${trailingLineBreaks}${formattedString}`;
+	return `${quoteValue}use strict${quoteValue};${trailingLineBreaks}${formattedString}`;
 };
 
 exports.tokenBefore = function tokenBefore(token) {
