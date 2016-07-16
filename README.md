@@ -9,3 +9,7 @@ Will strip other `use strict`s in file.
 ## Install
 
 Install with `npm i esformatter-use-strict`
+
+## Usage
+
+It accepts the same quote type config as https://github.com/millermedeiros/esformatter-quotes
